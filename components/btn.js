@@ -1,12 +1,15 @@
-var React = require('react-native');
-var {
+import NativeButton from './NativeButton';
+
+import React, {
+  Component,
   Animated,
   StyleSheet,
   Text,
   TouchableHighlight,
-} = React
+} from 'react-native';
 
-class Btn extends React.Component {
+class Btn extends Component {
+
   setTypeStyle(element) {
     switch (this.props.type) {
       case "danger":
@@ -26,6 +29,7 @@ class Btn extends React.Component {
         break;
     }
   }
+
   render() {
     let { panDimensions, style, text, width } = this.props;
     let customStyle = style || {};
@@ -33,9 +37,9 @@ class Btn extends React.Component {
 
     return (
       <Animated.View style={[panDimensions]}>
-        <TouchableHighlight {...this.props} style={[styles.btn, this.setTypeStyle(), customStyle]}>
+        <NativeButton {...this.props} style={[styles.btn, this.setTypeStyle(), customStyle]}>
           <Text style={[styles.btnText, setWidth]}>{text}</Text>
-        </TouchableHighlight>
+        </NativeButton>
       </Animated.View>
     );
   }
@@ -43,7 +47,7 @@ class Btn extends React.Component {
 
 /* Style */
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   btn: {
     backgroundColor: '#b6bec0',
     flex: 1,
@@ -68,4 +72,4 @@ var styles = StyleSheet.create({
   },
 });
 
-module.exports = Btn;
+export default Btn;
