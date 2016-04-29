@@ -11,19 +11,14 @@ import React, {
 
 class Btn extends Component {
 
-  static propTypes = Object.assign(
-    {
-      ...NativeButton.propTypes,
-    },
-    {
-      panDimensions: PropTypes.object.isRequired,
-      width: PropTypes.number.isRequired,
-      onPress: PropTypes.func.isRequired,
-      component: PropTypes.node,
-      text: PropTypes.string,
-      type: PropTypes.string,
-    }
-  );
+  static propTypes = {
+    ...NativeButton.propTypes,
+    panDimensions: PropTypes.object.isRequired,
+    width: PropTypes.number.isRequired,
+    component: PropTypes.node,
+    text: PropTypes.string,
+    type: PropTypes.string,
+  };
 
   static defaultProps = {
     component: null,
