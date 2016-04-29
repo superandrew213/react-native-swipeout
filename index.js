@@ -322,6 +322,7 @@ class Swipeout extends React.Component {
                     panDimensions={self.returnBtnDimensions(i, 'left')}
                     text={btn.text}
                     type={btn.type}
+                    component={btn.component}
                     width={leftBtnWidths[i]}
                     {...btnProps}
                     onPress={() => self.handleBtnPress(btn)}/>
@@ -343,6 +344,7 @@ class Swipeout extends React.Component {
                     panDimensions={self.returnBtnDimensions(i, 'right')}
                     text={btn.text}
                     type={btn.type}
+                    component={btn.component}
                     width={rightBtnWidths[i]}
                     {...btnProps}
                     onPress={() => self.handleBtnPress(btn)}/>

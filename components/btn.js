@@ -6,9 +6,30 @@ import React, {
   StyleSheet,
   Text,
   TouchableHighlight,
+  PropTypes,
 } from 'react-native';
 
 class Btn extends Component {
+
+  static propTypes = Object.assign(
+    {
+      ...NativeButton.propTypes,
+    },
+    {
+      panDimensions: PropTypes.object.isRequired,
+      width: PropTypes.number.isRequired,
+      onPress: PropTypes.func.isRequired,
+      component: PropTypes.node,
+      text: PropTypes.string,
+      type: PropTypes.string,
+    }
+  );
+
+  static defaultProps = {
+    component: null,
+    text: 'Click Me',
+    type: null,
+  };
 
   setTypeStyle(element) {
     switch (this.props.type) {
@@ -31,14 +52,17 @@ class Btn extends Component {
   }
 
   render() {
-    let { panDimensions, style, text, width } = this.props;
-    let customStyle = style || {};
+    let { panDimensions, style, text, width, component, type, ...btnProps } = this.props;
     let setWidth = { width: Math.ceil(width) };
 
     return (
       <Animated.View style={[panDimensions]}>
-        <NativeButton {...this.props} style={[styles.btn, this.setTypeStyle(), customStyle]}>
-          <Text style={[styles.btnText, setWidth]}>{text}</Text>
+        <NativeButton {...btnProps} style={[styles.btn, this.setTypeStyle(), style]}>
+          { component ?
+            component
+            :
+            (<Text style={[styles.btnText, setWidth]}>{text}</Text>)
+          }
         </NativeButton>
       </Animated.View>
     );

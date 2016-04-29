@@ -83,7 +83,7 @@ scroll          | func        |           | prevent parent scroll
 
 Prop            | Type   | Default   | Description
 --------------- | ------ | --------- | -----------
-component       | string | null      | pass custom component to button
+component       | node   | null      | pass custom component to button
 props           | array  | null      | pass props to button (ex: `onPress`, `style`, `underlayColor`)
 text            | string | 'Click Me'| text
 type            | string | null      | `danger`/`delete`, `primary`, `secondary`, `success`
