@@ -118,7 +118,7 @@ const Swipeout = React.createClass({
     return {
       rowID: -1,
       sectionID: -1,
-      sensitivity: 0,
+      sensitivity: 5,
     };
   },
 
